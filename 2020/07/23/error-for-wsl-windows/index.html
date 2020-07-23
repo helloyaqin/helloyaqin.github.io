@@ -9,15 +9,28 @@
   
     <link rel="icon" href="/img/bitbug_favicon.ico">
   
-  <title>Tag: Github | 日渐秃头白夫人</title>
+  <title>wsl.exe系统找不到指定的文件，安装与配置 | 日渐秃头白夫人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="日渐秃头白夫人">
-<meta property="og:url" content="http://yoursite.com/tags/Github/index.html">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近部署好的项目在调试时出现了如下报错：  java.io.IOException: Cannot run program “wsl.exe”: CreateProcess error&#x3D;2, 系统找不到指定的文件。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;at java.lang.ProcessBuilder.start(ProcessBui">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wsl.exe系统找不到指定的文件，安装与配置">
+<meta property="og:url" content="http://yoursite.com/2020/07/23/error-for-wsl-windows/index.html">
 <meta property="og:site_name" content="日渐秃头白夫人">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近部署好的项目在调试时出现了如下报错：  java.io.IOException: Cannot run program “wsl.exe”: CreateProcess error&#x3D;2, 系统找不到指定的文件。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;at java.lang.ProcessBuilder.start(ProcessBui">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/07/23/error-for-wsl-windows/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/23/error-for-wsl-windows/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/23/error-for-wsl-windows/3.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/23/error-for-wsl-windows/4.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/23/error-for-wsl-windows/5.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/23/error-for-wsl-windows/6.png">
+<meta property="article:published_time" content="2020-07-23T06:09:45.000Z">
+<meta property="article:modified_time" content="2020-07-23T07:17:15.190Z">
 <meta property="article:author" content="斐雅琴">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Windows">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/23/error-for-wsl-windows/1.png">
   
     <link rel="alternative" href="/atom.xml" title="日渐秃头白夫人" type="application/atom+xml">
   
@@ -153,68 +166,209 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-error-for-wsl-windows" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/21/blog/" class="archive-article-date">
-  	<time datetime="2020-07-21T06:36:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/21/blog/">如何使用github搭建个人博客</a>
+    <h1 class="article-title" itemprop="name">
+      wsl.exe系统找不到指定的文件，安装与配置
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/07/23/error-for-wsl-windows/" class="archive-article-date">
+  	<time datetime="2020-07-23T06:09:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;最近部署好的项目在调试时出现了如下报错：</p>
+<blockquote>
+<p>java.io.IOException: Cannot run program “wsl.exe”: CreateProcess error=2, 系统找不到指定的文件。<br>&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)<br>&nbsp;&nbsp;&nbsp;&nbsp;at com.netflix.eureka.resources.ApplicationResource.callContract(ApplicationResource.java:257)<br>&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br>&nbsp;&nbsp;&nbsp;&nbsp;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br>&nbsp;&nbsp;&nbsp;&nbsp;at java.lang.reflect.Method.invoke(Method.java:498)<br>…</p>
+</blockquote>
+<p>&emsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;阅读了一下源码，发现项目后端需要Windows用一个叫做”wsl.exe”的文件执行一条Linux语句，而wsl的全名为<strong>Windows Subsystem for Linux</strong>，是微软开发的Linux兼容内核接口<a id="more"></a>（来自百度百科），其实说白了就是可以在Windows环境下运行Bash shell的程序！而且与完整的虚拟机设置相比，对计算机资源的压力较小</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;听起来简直像是程序猿必备的工具，<del>我竟然一直不知道太惭愧了</del>，既然wsl这么有用，那我们就来安装一下它吧</p>
+<h2 id="1-打开开发者模式"><a href="#1-打开开发者模式" class="headerlink" title="1. 打开开发者模式"></a>1. 打开开发者模式</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;在确保Windows为64位后，设置-&gt;更新和安全-&gt;开发者选项，选中开发者模式，等待系统安装新功能（印象中需要重启）</p>
+<div style="text-align:center">
+    <img src="1.png" width="80%">
+</div>
+
+<p>&emsp;</p>
+<h2 id="2-控制面板"><a href="#2-控制面板" class="headerlink" title="2. 控制面板"></a>2. 控制面板</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;打开控制面板-&gt;程序和功能-&gt;启用Windows应用-&gt;勾选”适用于Linux”的Windows子系统（英文名Windows subsystem for Linux）</p>
+<div style="text-align:center">
+    <img src="2.png" width="80%">
+</div>
+
+<p>&emsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;确定后重启计算机，重启后cmd唤出命令行，输入wsl会得到如下结果，说明我们的安装已经成功了一半了，接下来需要安装这个叫做”分发版”的东西</p>
+<div style="text-align:center">
+    <img src="3.png" width="60%">
+</div>
+
+<p>&emsp;</p>
+<h2 id="3-安装分发版"><a href="#3-安装分发版" class="headerlink" title="3. 安装分发版"></a>3. 安装分发版</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;打开Microsoft Store，安装分发版，官方也有<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#install-your-linux-distribution-of-choice" target="_blank" rel="noopener">链接</a>可以打开每个分发版的Microsoft Store页面，这里按自己的需求下载合适的版本即可，我下的是Ubuntu 18</p>
+<div style="text-align:center">
+    <img src="4.png" width="50%">
+</div>
+
+<p>&emsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;注意wsl只能在系统驱动器（通常是C盘）中运行，如果之前更改过默认保存路径记得改回来：设置-&gt;系统-&gt;存储-&gt;更改新内容的保存位置</p>
+<div style="text-align:center">
+    <img src="5.png" width="60%">
+</div>
+
+<p>&emsp;</p>
+<h2 id="4-配置Linux分发版"><a href="#4-配置Linux分发版" class="headerlink" title="4. 配置Linux分发版"></a>4. 配置Linux分发版</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;下载完成后，开启应用，按照控制台提示（需要等待一段时间），为新的Linux分发版创建新帐户和密码</p>
+<div style="text-align:center">
+    <img src="6.png" width="70%">
+</div>
+
+<p>&emsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;至此子系统的安装配置就全部完成啦，建议一开始使用先输入命令：<code>sudo apt update &amp;&amp; sudo apt upgrade</code>更新下更新包目录</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;最后报错也解决啦！开心！！！</p>
+<p>&emsp;</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.jianshu.com/p/7b348828644e" target="_blank" rel="noopener">https://www.jianshu.com/p/7b348828644e</a><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#install-the-windows-subsystem-for-linux" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#install-the-windows-subsystem-for-linux</a><br>&nbsp;&nbsp;&nbsp;&nbsp;安装若还出现了其他问题，可以去官网查询原因：<a href="https://docs.microsoft.com/zh-cn/windows/wsl/troubleshooting#common-issues" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/windows/wsl/troubleshooting#common-issues</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Nodejs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Windows</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/23/error-for-wsl-windows/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/07/21/solidity/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Windows系统下进行Solidity智能合约项目的配置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-打开开发者模式"><span class="toc-number">1.</span> <span class="toc-text">1. 打开开发者模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-控制面板"><span class="toc-number">2.</span> <span class="toc-text">2. 控制面板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-安装分发版"><span class="toc-number">3.</span> <span class="toc-text">3. 安装分发版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-配置Linux分发版"><span class="toc-number">4.</span> <span class="toc-text">4. 配置Linux分发版</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -237,9 +391,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
