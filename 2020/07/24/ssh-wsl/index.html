@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/07/24/ssh-wsl/4.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/24/ssh-wsl/5.png">
 <meta property="article:published_time" content="2020-07-24T02:31:27.000Z">
-<meta property="article:modified_time" content="2020-07-24T12:19:20.035Z">
+<meta property="article:modified_time" content="2020-07-24T12:29:35.082Z">
 <meta property="article:author" content="斐雅琴">
 <meta property="article:tag" content="Windows">
 <meta name="twitter:card" content="summary">
@@ -205,14 +205,14 @@
 <p>WSL默认路径为：C:\Users\ASUS\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc\LocalState\rootfs\home\yaqin\.ssh</p>
 </blockquote>
 <p>&emsp;</p>
-<h2 id="2-将公钥传给远程服务器"><a href="#2-将公钥传给远程服务器" class="headerlink" title="2.将公钥传给远程服务器"></a>2.将公钥传给远程服务器</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;利用Xftp将公钥<strong>id_rsa.pub</strong>传给服务器，scp指令亦可，因为WSL的默认路径实在是太长了，为了方便这里使用的是Xftp进行传输，来到存储公钥的地方并将文件传给远程服务器的<strong>.ssh</strong>文件夹</p>
+<h2 id="2-将公钥传给远程服务器"><a href="#2-将公钥传给远程服务器" class="headerlink" title="2. 将公钥传给远程服务器"></a>2. 将公钥传给远程服务器</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;利用Xftp将公钥<strong>id_rsa.pub</strong>传给服务器，scp指令亦可，因为WSL的默认路径实在是太长了，为了方便这里使用的是Xftp进行传输，来到存储公钥的地方并将文件传给远程服务器的<strong>.ssh</strong>文件夹</p>
 <div style="text-align:center">
     <img src="3.png" width="70%">
 </div>
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;使用scp指令则<code>scp 路径文件夹 root@IP地址:root/.ssh</code>即可</p>
 <p>&emsp;</p>
-<h2 id="3-远程服务器配置"><a href="#3-远程服务器配置" class="headerlink" title="3.远程服务器配置"></a>3.远程服务器配置</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;来到远程服务器，使用<code>cat .shh/id_rsa.pub &gt;&gt; .ssh/authorized_keys</code>指令重命名公钥文件</p>
+<h2 id="3-远程服务器配置"><a href="#3-远程服务器配置" class="headerlink" title="3. 远程服务器配置"></a>3. 远程服务器配置</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;来到远程服务器，使用<code>cat .shh/id_rsa.pub &gt;&gt; .ssh/authorized_keys</code>指令重命名公钥文件</p>
 <div style="text-align:center">
     <img src="4.png" width="70%">
 </div>
@@ -222,6 +222,10 @@
 <div style="text-align:center">
     <img src="5.png" width="70%">
 </div>
+
+<p>&emsp;</p>
+<h2 id="4-小尾巴"><a href="#4-小尾巴" class="headerlink" title="4. 小尾巴"></a>4. 小尾巴</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;在项目中发现学长可以通过服务器名进行进行免密连接，但现在我自己只能做到IP地址连接。等我搞清楚其中奥秘，如果可以复刻再来填坑</p>
+
       
 
       
@@ -333,7 +337,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-生成公私钥"><span class="toc-number">1.</span> <span class="toc-text">1. 生成公私钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-将公钥传给远程服务器"><span class="toc-number">2.</span> <span class="toc-text">2.将公钥传给远程服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-远程服务器配置"><span class="toc-number">3.</span> <span class="toc-text">3.远程服务器配置</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-生成公私钥"><span class="toc-number">1.</span> <span class="toc-text">1. 生成公私钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-将公钥传给远程服务器"><span class="toc-number">2.</span> <span class="toc-text">2. 将公钥传给远程服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-远程服务器配置"><span class="toc-number">3.</span> <span class="toc-text">3. 远程服务器配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-小尾巴"><span class="toc-number">4.</span> <span class="toc-text">4. 小尾巴</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -445,14 +449,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -470,6 +466,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Smart Contract</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
             
             <div class="clearfix"></div>
