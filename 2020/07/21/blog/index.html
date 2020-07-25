@@ -37,7 +37,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/07/21/blog/15.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/07/21/blog/16.jpg">
 <meta property="article:published_time" content="2020-07-21T06:36:19.000Z">
-<meta property="article:modified_time" content="2020-07-23T07:20:04.385Z">
+<meta property="article:modified_time" content="2020-07-25T11:56:04.915Z">
 <meta property="article:author" content="斐雅琴">
 <meta property="article:tag" content="Github">
 <meta property="article:tag" content="Hexo">
@@ -221,7 +221,7 @@
 <li><p>之后还需要配置一下nodejs的环境，并且把依赖的存储空间从C盘改到其他的盘里，减少内存的压力，<a href="https://blog.csdn.net/qq_43285335/article/details/90696126" target="_blank" rel="noopener">参考链接</a></p>
 <p>  创建两个文件夹：node_global node_cache，<strong>注意路径中不要有中文或空格</strong></p>
 <p>  使用下面命令将npm的全局模块目录和缓存目录配置到我们刚才创建的那两个目录</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix &quot;node_global文件的路径&quot;</span><br><span class="line">npm config set cache &quot;node_cache的文件路径&quot;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> prefix "node_global文件的路径"</span><br><span class="line">npm config <span class="built_in">set</span> cache "node_cache的文件路径"</span><br></pre></td></tr></table></figure>
 <p>  可以使用命令<code>npm config get prefix</code>查看prefix路径是否已经正确修改</p>
 <p>  随后配置环境变量，系统变量新建NODE_PATH，路径为安装的nodejs中的node_modules文件夹（下载好的文件会存在此处）</p>
   <div style="text-align:center">
@@ -243,7 +243,7 @@
 <p>&emsp;</p>
 <h2 id="2-在localhost中查看博客"><a href="#2-在localhost中查看博客" class="headerlink" title="2. 在localhost中查看博客"></a>2. 在localhost中查看博客</h2><ul>
 <li><p>首先我们需要在本地中新建文件夹，这个文件夹用于存放个人博客所需的所有东西，用命令行新建文件夹并进入</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir 文件夹名</span><br><span class="line">cd 文件夹名</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> 文件夹名</span><br><span class="line"><span class="built_in">cd</span> 文件夹名</span><br></pre></td></tr></table></figure></li>
 <li><p>随后，输入命令<code>hexo init</code>进行初始化，需要下载文件和依赖，所需时间比较长</p>
   <div style="text-align:center">
       <img src="2.jpg" width="70%">
@@ -335,7 +335,7 @@
 <p>  里面官方例子可以仔细看看，因为有注解！很良心！不然一开始拿到可能会懵</p>
 </li>
 <li><p>按照README，在博客文件夹中右键-&gt;Git Bash Here，输入命令</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia.git themes&#x2F;yilia</span><br></pre></td></tr></table></figure>
+  <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
 
 <p>  我的下载进度比较缓慢，可能要多等一会儿</p>
 </li>
@@ -591,6 +591,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Github</a>
               </li>
              
@@ -599,11 +607,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
+                <a href="javascript:void(0)" class="js-tag color5">Note</a>
               </li>
              
               <li class="article-tag-list-item">

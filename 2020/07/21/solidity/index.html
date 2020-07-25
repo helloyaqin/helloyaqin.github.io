@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/07/21/solidity/12.png">
 <meta property="og:image" content="http://yoursite.com/2020/07/21/solidity/15.png">
 <meta property="article:published_time" content="2020-07-21T07:19:17.000Z">
-<meta property="article:modified_time" content="2020-07-23T06:14:28.022Z">
+<meta property="article:modified_time" content="2020-07-25T11:54:45.106Z">
 <meta property="article:author" content="斐雅琴">
 <meta property="article:tag" content="Solidity">
 <meta property="article:tag" content="Blockchain">
@@ -231,7 +231,7 @@
 </div>
 
 <h2 id="3-新建智能合约项目"><a href="#3-新建智能合约项目" class="headerlink" title="3. 新建智能合约项目"></a>3. 新建智能合约项目</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;利用truffle对项目文件夹进行初始化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir 项目名</span><br><span class="line">cd 项目名</span><br><span class="line">truffle init</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> 项目名</span><br><span class="line"><span class="built_in">cd</span> 项目名</span><br><span class="line">truffle init</span><br></pre></td></tr></table></figure>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;获得目录架构如下</p>
 <div style="text-align:center">
     <img src="3.png" width="70%">
@@ -265,7 +265,7 @@
 </div>
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;同时<strong>truffle-config.js</strong>也需要进行配置，在该文件中使用如下代码，其中port端口需要与Ganache一致</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    networks: &#123;</span><br><span class="line">        development: &#123;</span><br><span class="line">            host: &quot;127.0.0.1&quot;,</span><br><span class="line">            port: 7545,</span><br><span class="line">            network_id: &quot;*&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">    networks: &#123;</span><br><span class="line">        development: &#123;</span><br><span class="line">            host: "127.0.0.1",</span><br><span class="line">            port: 7545,</span><br><span class="line">            network_id: "*"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>&emsp;</p>
 <h2 id="5-项目编译并进行发布"><a href="#5-项目编译并进行发布" class="headerlink" title="5. 项目编译并进行发布"></a>5. 项目编译并进行发布</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;在智能合约项目根路径中，使用命令<code>truffle compile</code>对项目进行编译，如果项目语法存在错误会报错，根据报错信息进行修改直到编译成功</p>
@@ -537,6 +537,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Github</a>
               </li>
              
@@ -545,11 +553,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
+                <a href="javascript:void(0)" class="js-tag color5">Note</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -9,15 +9,29 @@
   
     <link rel="icon" href="/img/bitbug_favicon.ico">
   
-  <title>Archives: 2020/7 | 日渐秃头白夫人</title>
+  <title>【笔记】Java判断系统类型执行命令 | 日渐秃头白夫人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="日渐秃头白夫人">
-<meta property="og:url" content="http://yoursite.com/archives/2020/07/index.html">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在学习前辈们的项目，发现自己真的菜，在项目中关于”如何判定操作系统并对此执行不同的命令”的部分感觉十分的实用！准备记一下笔记，同时因为用ProcessBuilder方法执行命令也不是很熟练（Runtime方法好像要被淘汰了），所以也跟着一起总结+复刻一下 1. 判断系统类型&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;直接上代码，一条语句即可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【笔记】Java判断系统类型执行命令">
+<meta property="og:url" content="http://yoursite.com/2020/07/25/system-command/index.html">
 <meta property="og:site_name" content="日渐秃头白夫人">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近在学习前辈们的项目，发现自己真的菜，在项目中关于”如何判定操作系统并对此执行不同的命令”的部分感觉十分的实用！准备记一下笔记，同时因为用ProcessBuilder方法执行命令也不是很熟练（Runtime方法好像要被淘汰了），所以也跟着一起总结+复刻一下 1. 判断系统类型&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;直接上代码，一条语句即可">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/07/25/system-command/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/25/system-command/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/25/system-command/3.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/25/system-command/4.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/25/system-command/5.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/25/system-command/6.png">
+<meta property="og:image" content="http://yoursite.com/2020/07/25/system-command/7.png">
+<meta property="article:published_time" content="2020-07-25T02:28:34.000Z">
+<meta property="article:modified_time" content="2020-07-25T11:53:17.765Z">
 <meta property="article:author" content="斐雅琴">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/25/system-command/1.png">
   
     <link rel="alternative" href="/atom.xml" title="日渐秃头白夫人" type="application/atom+xml">
   
@@ -153,36 +167,163 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-system-command" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      【笔记】Java判断系统类型执行命令
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/25/system-command/" class="archive-article-date">
+
+        
+        <a href="/2020/07/25/system-command/" class="archive-article-date">
   	<time datetime="2020-07-25T02:28:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/25/system-command/">【笔记】Java判断系统类型执行命令</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;最近在学习前辈们的项目，<del>发现自己真的菜</del>，在项目中关于”如何判定操作系统并对此执行不同的命令”的部分感觉十分的实用！准备记一下笔记，同时因为用ProcessBuilder方法执行命令也不是很熟练（Runtime方法好像要被淘汰了），所以也跟着一起总结+复刻一下</p>
+<h2 id="1-判断系统类型"><a href="#1-判断系统类型" class="headerlink" title="1. 判断系统类型"></a>1. 判断系统类型</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;直接上代码，一条语句即可判断系统类型：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> isWindows = System.getProperty(<span class="string">"os.name"</span>).toLowerCase().startsWith(<span class="string">"windows"</span>);</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<p>&nbsp;&nbsp;&nbsp;&nbsp;其中最主要的就是<strong>System.getProperty()函数</strong>，其中”os.name”就是操作系统名称。当然System.getProperty()还可以使用其他参数获取对应系统信息，这里po些应该比较常用的：<a id="more"></a></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>java.version</td>
+<td align="left">Java版本号</td>
+</tr>
+<tr>
+<td>java.home</td>
+<td align="left">Jre目录</td>
+</tr>
+<tr>
+<td>java.specification.name</td>
+<td align="left">Java规范名称</td>
+</tr>
+<tr>
+<td>java.class.version</td>
+<td align="left">Java类版本号</td>
+</tr>
+<tr>
+<td>java.class.path</td>
+<td align="left">Java类路径</td>
+</tr>
+<tr>
+<td>java.library.path</td>
+<td align="left">Java lib路径</td>
+</tr>
+<tr>
+<td>os.name</td>
+<td align="left">操作系统名称</td>
+</tr>
+<tr>
+<td>os.version</td>
+<td align="left">操作系统版本号</td>
+</tr>
+<tr>
+<td>file.separator</td>
+<td align="left">文件分隔符</td>
+</tr>
+<tr>
+<td>path.separator</td>
+<td align="left">路径分隔符</td>
+</tr>
+<tr>
+<td>line.separator</td>
+<td align="left">直线分隔符</td>
+</tr>
+<tr>
+<td>user.name</td>
+<td align="left">用户名</td>
+</tr>
+<tr>
+<td>user.home</td>
+<td align="left">用户的主目录</td>
+</tr>
+<tr>
+<td>user.dir</td>
+<td align="left">当前程序所在目录</td>
+</tr>
+</tbody></table>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;既然学就学一套！又去查了下API文档System类中有关系统信息的函数，包括:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getProperty</span><span class="params">(String key)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getProperty</span><span class="params">(String key,String def)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">setProperty</span><span class="params">(String key,String value)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getenv</span><span class="params">(String name)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Map&lt;String,String&gt; <span class="title">getenv</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;简单看一眼他们都是干什么的：</p>
+<p>&emsp;</p>
+<h3 id="1-1-public-static-String-getProperty-String-key"><a href="#1-1-public-static-String-getProperty-String-key" class="headerlink" title="1.1 public static String getProperty(String key)"></a>1.1 public static String getProperty(String key)</h3><div style="text-align:center">
+    <img src="1.png" width="95%">
+</div>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;获取由指定Key指示的系统属性：首先，如果有安全管理器，则将Key作为参数调用checkPropertyAccess。这可能会导致SecurityException。 如果没有当前的system properties，则首先以与getProperties方法相同的方式创建和初始化一组系统属性。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;参数为Key，即系统属性的名字，返回值为系统属性对应的value值，如果没有名字为Key的系统属性则返回null</p>
+<p>&emsp;</p>
+<h3 id="1-2-public-static-String-getProperty-String-key-String-def"><a href="#1-2-public-static-String-getProperty-String-key-String-def" class="headerlink" title="1.2 public static String getProperty(String key,String def)"></a>1.2 public static String getProperty(String key,String def)</h3><div style="text-align:center">
+    <img src="2.png" width="95%">
+</div>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;同样获取由指定Key指示的系统属性。 唯一的区别是不会产生SecurityException，参数多了个默认值，但该函数本人还未理解于上个函数的区别（如果仅仅是不会产生错误，那为什么不用这个呢？），留个小尾巴，之后补上</p>
+<p>&emsp;</p>
+<h3 id="1-3-public-static-String-setProperty-String-key-String-value"><a href="#1-3-public-static-String-setProperty-String-key-String-value" class="headerlink" title="1.3 public static String setProperty(String key,String value)"></a>1.3 public static String setProperty(String key,String value)</h3><div style="text-align:center">
+    <img src="3.png" width="95%">
+</div>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;设置由指定Key指示的系统属性： 首先，如果存在安全管理器，则使用PropertyPermission（key，“  write”）权限调用其SecurityManager.checkPermission方法。这可能会导致引发SecurityException。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;如果没有抛出异常，则将指定的属性设置为给定值，有趣的是该函数还会返回原来该Key对应的属性值</p>
+<p>&emsp;</p>
+<h3 id="1-4-public-static-String-clearProperty-String-key"><a href="#1-4-public-static-String-clearProperty-String-key" class="headerlink" title="1.4 public static String clearProperty(String key)"></a>1.4 public static String clearProperty(String key)</h3><div style="text-align:center">
+    <img src="4.png" width="95%">
+</div>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;删除由指定键指示的系统属性：首先，如果存在安全管理器，则使用PropertyPermission（key，“  write”）权限调用其SecurityManager.checkPermission方法。这可能会导致引发SecurityException。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;如果没有抛出异常，则删除指定的属性，并返回原来该Key对应的属性值</p>
+<p>&emsp;</p>
+<h3 id="1-5-public-static-String-getenv-String-name"><a href="#1-5-public-static-String-getenv-String-name" class="headerlink" title="1.5 public static String getenv(String name)"></a>1.5 public static String getenv(String name)</h3><div style="text-align:center">
+    <img src="5.png" width="95%">
+</div>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;获取指定环境变量的值。前面都是系统属性，两者的区别是什么呢？</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;系统属性和环境变量在概念上都是名称和值之间的映射。两种机制都可用于将用户定义的信息传递给Java进程，但是环境变量具有更广泛的影响，因为它们对定义它们的进程的所有后代都是可见的，而不仅仅是直接Java子进程可见。在不同的操作系统上，它们可以具有微妙的语义，例如是否区分大小写。比如在UNIX系统上，名称的字母大小写通常很重要，而在Microsoft Windows系统上，名称的字母大小写通常不重要。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;基于以上原因，环境变量更有可能产生意想不到的副作用。官方建议的使用方法如下：最好在可能的情况下使用系统属性。当需要全局效果或外部系统接口需要环境变量（例如PATH）时，应使用环境变量。</p>
+<p>&emsp;</p>
+<h2 id="1-6-public-static-Map-lt-String-String-gt-getenv"><a href="#1-6-public-static-Map-lt-String-String-gt-getenv" class="headerlink" title="1.6 public static Map&lt;String,String&gt; getenv()"></a>1.6 public static Map&lt;String,String&gt; getenv()</h2><div style="text-align:center">
+    <img src="6.png" width="95%">
+</div>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;返回当前所有环境变量的键值对。如果系统不支持环境变量，则返回一个空映射。</p>
+<p>&emsp;</p>
+<h2 id="2-ProcessBuilder执行进程"><a href="#2-ProcessBuilder执行进程" class="headerlink" title="2. ProcessBuilder执行进程"></a>2. ProcessBuilder执行进程</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;关于为什么使用ProcessBuilder方法，在网上找到这么一句话：</p>
+<blockquote>
+<p>通过Java执行系统命令，与cmd中或者终端上一样执行shell命令，最典型的用法就是使用Runtime.getRuntime().exec(command)或者new ProcessBuilder(cmdArray).start()。从JDK1.5开始，官方提供并推荐使用ProcessBuilder类进行shell命令操作。</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;还有就是Runtime内部其实也是使用的ProcessBuilder，综合来看ProcessBuilder都将成为执行命令的主流，于是写了个类似的示例，判断操作系统+特定执行操作的函数ExcuteCommand()</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ExcuteCommand</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ProcessBuilder builder = <span class="keyword">new</span> ProcessBuilder();</span><br><span class="line">    <span class="keyword">boolean</span> isWindows = System.getProperty(<span class="string">"os.name"</span>).toLowerCase().startsWith(<span class="string">"windows"</span>);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        builder.redirectErrorStream(<span class="keyword">true</span>);</span><br><span class="line">        String dir = <span class="string">"F:\\IDEA"</span>;</span><br><span class="line">        List&lt;String&gt; stringList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        stringList.add(<span class="string">"cmd"</span>);</span><br><span class="line">        stringList.add(<span class="string">"/c"</span>);</span><br><span class="line">        stringList.add(<span class="string">"truffle"</span>);</span><br><span class="line">        stringList.add(<span class="string">"version"</span>);</span><br><span class="line">        <span class="comment">//System.out.println(stringList);</span></span><br><span class="line">        <span class="keyword">if</span> (isWindows) &#123;</span><br><span class="line">            builder.directory(<span class="keyword">new</span> File(dir));</span><br><span class="line">            builder.command(stringList);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            builder.command(<span class="string">"/bin/sh"</span>,<span class="string">"-c"</span>,<span class="string">"ll"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        Process process = builder.start();</span><br><span class="line">        BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(process.getInputStream(),<span class="string">"gb2312"</span>));</span><br><span class="line">        String len = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span>((len = bufferedReader.readLine()) != <span class="keyword">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(len);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;具体如何分割一条命令存入字符串，本人的见解就是有空格就要分开存储进List中。当然也可以使用一条字符串，之后<code>builder.command(&quot;cmd&quot;,&quot;/c&quot;,stringCommand)</code>，结果是一样的，但本人测试感觉适用度没有StringList好。最后的输出结果如下图，代表已经正确运行了查询truffle版本的指令，示例运行正确</p>
+<div style="text-align:center">
+    <img src="7.png" width="80%">
+</div>
+
+<p>&emsp;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -198,228 +339,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/25/system-command/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/24/fore-back-speration/" class="archive-article-date">
-  	<time datetime="2020-07-24T13:29:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/24/fore-back-speration/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【笔记】看程序羊谈前后端分离</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/24/fore-back-speration/">【笔记】看程序羊谈前后端分离</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Note</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-判断系统类型"><span class="toc-number">1.</span> <span class="toc-text">1. 判断系统类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-public-static-String-getProperty-String-key"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 public static String getProperty(String key)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-public-static-String-getProperty-String-key-String-def"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 public static String getProperty(String key,String def)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-public-static-String-setProperty-String-key-String-value"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 public static String setProperty(String key,String value)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-public-static-String-clearProperty-String-key"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 public static String clearProperty(String key)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-public-static-String-getenv-String-name"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 public static String getenv(String name)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-public-static-Map-lt-String-String-gt-getenv"><span class="toc-number">2.</span> <span class="toc-text">1.6 public static Map&lt;String,String&gt; getenv()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-ProcessBuilder执行进程"><span class="toc-number">3.</span> <span class="toc-text">2. ProcessBuilder执行进程</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/24/ssh-wsl/" class="archive-article-date">
-  	<time datetime="2020-07-24T02:31:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-24</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/24/ssh-wsl/">在子系统WSL中实现远程服务器免密登陆</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Windows</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/23/error-for-wsl-windows/" class="archive-article-date">
-  	<time datetime="2020-07-23T06:09:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/23/error-for-wsl-windows/">wsl.exe系统找不到指定的文件，安装与配置</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Windows</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/21/solidity/" class="archive-article-date">
-  	<time datetime="2020-07-21T07:19:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/21/solidity/">Windows系统下进行Solidity智能合约项目的配置</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Solidity</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Blockchain</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Smart Contract</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/21/blog/" class="archive-article-date">
-  	<time datetime="2020-07-21T06:36:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/21/blog/">如何使用github搭建个人博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/07/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/07/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -443,8 +474,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
