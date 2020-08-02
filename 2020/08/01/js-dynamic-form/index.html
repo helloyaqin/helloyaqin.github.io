@@ -9,15 +9,23 @@
   
     <link rel="icon" href="/img/bitbug_favicon.ico">
   
-  <title>Tag: Git | 日渐秃头白夫人</title>
+  <title>Javascript/JQuery动态创建表单 | 日渐秃头白夫人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="日渐秃头白夫人">
-<meta property="og:url" content="http://yoursite.com/tags/Git/index.html">
+  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近学长布置的任务，要求在页面中可以主动的、动态的进行一张表单的创建，因为还涉及到form表单内各种id不能冲突的问题，所以还是废了点时间的，而且国内baidu搜关键词也没怎么检索到很符合需求的答案，所以准备仔细的梳理一下。当然不只是表单，准备的说是在页面上动态创建节点，所以可借鉴性还是挺大的，等我忘了这个方法就回来翻博客也挺好。 &amp;nbsp;&amp;n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript&#x2F;JQuery动态创建表单">
+<meta property="og:url" content="http://yoursite.com/2020/08/01/js-dynamic-form/index.html">
 <meta property="og:site_name" content="日渐秃头白夫人">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近学长布置的任务，要求在页面中可以主动的、动态的进行一张表单的创建，因为还涉及到form表单内各种id不能冲突的问题，所以还是废了点时间的，而且国内baidu搜关键词也没怎么检索到很符合需求的答案，所以准备仔细的梳理一下。当然不只是表单，准备的说是在页面上动态创建节点，所以可借鉴性还是挺大的，等我忘了这个方法就回来翻博客也挺好。 &amp;nbsp;&amp;n">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/08/01/js-dynamic-form/2.gif">
+<meta property="article:published_time" content="2020-08-01T13:05:35.000Z">
+<meta property="article:modified_time" content="2020-08-02T07:47:46.055Z">
 <meta property="article:author" content="斐雅琴">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="JQuery">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/01/js-dynamic-form/2.gif">
   
     <link rel="alternative" href="/atom.xml" title="日渐秃头白夫人" type="application/atom+xml">
   
@@ -153,98 +161,259 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js-dynamic-form" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/01/idea-git/" class="archive-article-date">
-  	<time datetime="2020-08-01T12:07:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/01/idea-git/">利用idea进行git项目更新</a>
+    <h1 class="article-title" itemprop="name">
+      Javascript/JQuery动态创建表单
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/08/01/js-dynamic-form/" class="archive-article-date">
+  	<time datetime="2020-08-01T13:05:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;最近学长布置的任务，要求在页面中可以主动的、动态的进行一张表单的创建，因为还涉及到form表单内各种id不能冲突的问题，所以还是废了点时间的，而且国内baidu搜关键词也没怎么检索到很符合需求的答案，所以准备仔细的梳理一下。当然不只是表单，准备的说是在页面上动态创建节点，所以可借鉴性还是挺大的，<del>等我忘了这个方法就回来翻博客也挺好</del>。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;同时，虽然只占很小的一部分但是最好还是不公开学长的源码，所以这里用的是我测试“动态创建节点”和“变换id以避免id冲突”时用的代码，加上补充时使用部分使用到项目中的非完全的js代码</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;此次虽然只有”动态创建节点”和”避免id冲突”两个大题，其实也把”如何进行节点定位”嵌进两个内容里面了，毕竟结合实例更好理解，我日后复习能复习的清楚点orz</p>
+<a id="more"></a>
+
+<p>&emsp;</p>
+<h2 id="1-动态创建节点"><a href="#1-动态创建节点" class="headerlink" title="1. 动态创建节点"></a>1. 动态创建节点</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;前端源码参照了<a href="https://www.jb51.net/article/121105.htm" target="_blank" rel="noopener">51CTO</a>，如果不涉及有关”子节点的相关操作”的话，其实看这个也够了，但是如果需要对子节点操作，比如id冲突、特定子节点样式/值更改，则还需要继续学习。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;先简述一下上面那个链接用到的js方法：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;首先，用<strong>getElementById</strong>来获取被添加了点击事件add_jietu()的节点</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add_jietu = <span class="built_in">document</span>.getElementById(<span class="string">'add_jietu'</span>); <span class="comment">//add_jietu对应的是元素的id</span></span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;随后，使用主角<strong>cloneNode</strong>进行节点的复刻（如果不是复制当前节点，还要涉及其他步骤，这里先一点点整理）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> node_clone = add_jietu.cloneNode();</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;如果复制节点不需要id，则应把id删掉，以防止与前面节点的id冲突问题（id需唯一）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node_clone.removeAttribute(<span class="string">'id'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;最后提取想要复制的节点的父节点，以便将新的复刻节点添加到父节点下，即复刻节点与原来的节点拥有同一个父节点：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nodeFather = add_jietu.parentNode;</span><br><span class="line">nodeFather.appendChild(node_clone);</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;于是我们就可以手动添加节点啦，点击span标签，效果是下面这个样子的：</p>
+<div style="text-align:center">
+    <img src="2.gif" width="50%">
+</div>
+
+
+<p>&emsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;之后是刚才提到的，不是复制当前节点的话如何进行被克隆节点的定位，就像我遇到的需求：我点击的是我的button按钮，但需要复制的是表单，这时就需要使用<strong>parent()，children()，siblings()</strong>，利用事件监听节点和被复制节点的<strong>div容器关系</strong>进行定位，这部分应该是Jquery的语法，我一直对两者的区分不是很透彻（用的时候都混在一起用）。下面是我对学长项目进行功能添加时编写的一部分代码，无法po出包括前端在内的完整代码，所以只能文字讲解：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//yaqin</span></span><br><span class="line"><span class="comment">//测试动态表单onclick是否有效</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">submit_contract</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> btnx = $(obj).parent();</span><br><span class="line">    <span class="comment">//var requestGroup = btnx.parent();</span></span><br><span class="line">    <span class="keyword">var</span> formGroup = btnx.siblings(<span class="string">"div[id^='form-group']"</span>);</span><br><span class="line">       </span><br><span class="line">    <span class="comment">//var lia = formGroup.children("li.a1"); //扩展，li标签namme为a1的子节点</span></span><br><span class="line">    <span class="comment">//alert(lia.first().text() + lia.eq(1).text());</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> lib = formGroup.children(<span class="string">"li.b1"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;首先，函数参数obj即为button按钮点击事件时传回来的参数，在前端button标签中需添加<code>onclick=&quot;submit_contract(this)&quot;</code>，<code>this</code>即为button本身，利用<code>$(obj)</code>可以将dom节点转换为jquery对象，随后我们可以使用parent()函数提取父节点：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btnx = $(obj).parent();</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;但单就我的例子来说：我的表单是”button的父节点的同宗节点”，故需要用到<code>siblings()</code>函数，但同时与button的父节点互为同宗节点的有很多，我还需要通过表达式进行筛选：</p>
+<ul>
+<li>这里siblings函数内参数中的<code>div</code>表示要求同宗节点标签是div</li>
+<li><code>[id^=&#39;form-group&#39;]</code>表示限制其id以form-group开头；id换成name就是对name属性进行筛选，^=也可以换成别的，和正则表达式差不多，<a href="https://zhidao.baidu.com/question/419708965.html" target="_blank" rel="noopener">参考链接</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>attribute^=value</td>
+<td>attr属性的值以value作为开头</td>
+</tr>
+<tr>
+<td>attribute$=value</td>
+<td>attr属性的值以value作为结尾</td>
+</tr>
+<tr>
+<td>attribute*=value</td>
+<td>attr属性的值中包含value</td>
+</tr>
+<tr>
+<td>attribute!=value</td>
+<td>attr属性中不含有value值</td>
+</tr>
+</tbody></table>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;通过上述的筛选，我变精准的找到了我要复制的表单form-group[数字]，有数字因为涉及到id冲突，也是为什么我需要用表达式进行筛选而不是直接”=”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> formGroup = btnx.siblings(<span class="string">"div[id^='form-group']"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;</p>
+<h2 id="2-更换节点id——避免id冲突"><a href="#2-更换节点id——避免id冲突" class="headerlink" title="2. 更换节点id——避免id冲突"></a>2. 更换节点id——避免id冲突</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;还记得上面的节点<code>node_clone</code>吗，其实改变id很简单，因为可以直接获取到id属性修改，这里我们定义<strong>全局变量</strong>i，每执行一次点击事件就让<code>++i</code>，并将i值嵌入我们的id属性值中，就避免了id冲突啦！<del>这个思路十分的程序猿</del></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>; <span class="comment">//重点在这里</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add_jietu</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">var</span> add_jietu = <span class="built_in">document</span>.getElementById(<span class="string">'add_jietu'</span> + i);</span><br><span class="line">  <span class="keyword">var</span> nodeFather = add_jietu.parentNode;</span><br><span class="line">  <span class="keyword">var</span> node_clone = add_jietu.cloneNode(<span class="literal">true</span>);</span><br><span class="line">  ++i;</span><br><span class="line">  node_clone.id = <span class="string">"add_jietu"</span> + i; <span class="comment">//重点在这里</span></span><br><span class="line">  ……</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;那么问题又来了！我不仅要改复制节点的id，复制节点还有子节点呀，他们的id怎么办？这个时候就可以用<code>getElementsByTagName</code>进行筛选啦！</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<code>getElementsByTagName(value)</code>会返回标签为value的子节点的List，之后按数组的形式一个个修改id就可以啦！注意下标是根据筛选结果走的，不同标签的筛选结果需要从新计数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">newFormNode.id = <span class="string">"request-group"</span> + i;</span><br><span class="line"></span><br><span class="line">newFormNode.getElementsByTagName(<span class="string">'input'</span>)[<span class="number">0</span>].id = <span class="string">"consumersubject"</span> + i;</span><br><span class="line">newFormNode.getElementsByTagName(<span class="string">'input'</span>)[<span class="number">1</span>].id = <span class="string">"consumerobject"</span> + i;</span><br><span class="line">newFormNode.getElementsByTagName(<span class="string">'input'</span>)[<span class="number">2</span>].id = <span class="string">"consumerstarttime"</span> + i;</span><br><span class="line">newFormNode.getElementsByTagName(<span class="string">'button'</span>)[<span class="number">1</span>].id = <span class="string">"submit_provider"</span> + i;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;需要注意的是<code>getElementsByTagName</code>方法是dom节点，即javascript的语法，如果用<code>$(obj)</code>将dom转换成jq对象了的话，使用<code>parent()</code>，<code>children()</code>函数就可以了，但是还差个小尾巴 ↓</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;随后学长的项目又给我出了点难题，论子节点的子节点要修改id怎么办？而且子节点很多，用的标签都是一样的，偏偏需要改id的只有那么几个，我们还是用children()获取的子节点：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lib = formGroup.children(<span class="string">"li.b1"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;其中<code>li.b1</code>表示li标签name为b1的子节点，那children返回的是数组，如何获取指定节点呢？这里我也是使用的坐标定位，但不是单纯的把下标加在后面，jquery有自己的获取指定第几个节点的函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lib = formGroup.children(<span class="string">"li.b1"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> consumersubject = lib.first();</span><br><span class="line"><span class="keyword">var</span> consumerobject = lib.eq(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> consumerstarttime = lib.eq(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<code>first()</code>、<code>last()</code>分别表示List&lt;节点&gt;中的第一个节点和最后一个节点，<code>eq(value)</code>表示的是第value个节点，之后再在此基础上进行子节点的筛选，就能找到子节点的子节点并对他进行操作啦！</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;比如下面我需要获取”子节点的子节点”的value值：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lib = formGroup.children(<span class="string">"li.b1"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> consumersubject = lib.first().children(<span class="string">"input[id^='consumersubject']"</span>).val();</span><br><span class="line"><span class="keyword">var</span> consumerobject = lib.eq(<span class="number">1</span>).children(<span class="string">"input[id^='consumerobject']"</span>).val();</span><br><span class="line"><span class="keyword">var</span> consumerstarttime = lib.eq(<span class="number">2</span>).children(<span class="string">"input[id^='consumerstarttime']"</span>).val();</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;做这个动态添加表单的功能时，感觉就是疯狂的脑筋急转弯，因为真的有点绕，写着写着就记不住自己定位到哪里了，就像这次学长的那个表单其实是”button的父节点的同宗节点的子节点的子节点”，更何况我还是边学习边写，真的很绕hhhhh</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;之后我总结下来的经验是：</p>
+<ul>
+<li>一定要先对div容器有个大致的了解，比如div和div之间的关系啥的，最好是先把缩进调正确了，后期会省很多时间（偷偷来一句不在乎缩进的同僚是真的屑）</li>
+<li>不要都写在一行，对于我们初学者，可以先不用在乎变量创建的多少，参照我那个任务，老老实实按当前节点——父节点——同宗节点——子节点——子节点来创建，这样调试也容易知道自己试哪里出的问题。</li>
+<li>虽然根本不是什么复杂问题但还是可以用<strong>高内聚低耦合</strong>的思想看，说白了就是复杂问题拆成简单问题</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;整理了半天总算是捋顺了，最后夹杂一下私货，祝自己生日快乐🎉</p>
+<p>&emsp;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/27/git-func/" class="archive-article-date">
-  	<time datetime="2020-07-27T06:25:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/27/git-func/">【笔记】git操作的流程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JQuery</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/01/js-dynamic-form/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/08/01/idea-git/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用idea进行git项目更新</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-动态创建节点"><span class="toc-number">1.</span> <span class="toc-text">1. 动态创建节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-更换节点id——避免id冲突"><span class="toc-number">2.</span> <span class="toc-text">2. 更换节点id——避免id冲突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">3.</span> <span class="toc-text">结语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -267,9 +436,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
